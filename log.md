@@ -2,8 +2,16 @@
 
 ### Day 0: February 19, 2018
 
-**Today's Progress:** Git is almost working with SSH.
+**Today's Progress:** Getting MEAN with... book tutorial.
 
-**Thoughts:** This is fun.
+**Thoughts:** Coudn't get 'heroku local web' to work. 
 
-**Link to work:** [This site helped me alot](hhttps://help.github.com/articles/connecting-to-github-with-ssh/)
+**Link to work:** [loc8r app](https://github.com/Operationbackfire/loc8r)
+
+### Day 1: February 20, 2018
+
+**Today's Progress:** Getting MEAN with... book tutorial.
+
+**Thoughts:** heroku local still dosn't work. Made my first issue.
+
+**Link to work:** [github 1. issue](https://github.com/Operationbackfire/loc8r/issues/1)
