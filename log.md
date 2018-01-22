@@ -23,3 +23,10 @@
 **Thoughts:** I used an answer from Stackoverflow to get heroku to work, but en the end the answer failed me. I coudn't be repeated.
 
 **Link to work:** Nothing.
+
+### Day 3: February 22, 2018
+**Today's Progress:** Referencing data in Jade templates: interpolation and buffered code. Mixin in Jade. Trying out MongoDB. Installed with brew. Don't know if it is alive yet. Intalled Mongoose package for NodeJS. Added some lines of code to models/db.js, and referenced it from app.js.
+
+**Thoughts:** Will get MongoDB to work tomorrow.
+
+**Link to work:** Not much. Heroku is still failing me. Something wrong the the Dezalgo package.
