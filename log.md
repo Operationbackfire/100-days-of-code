@@ -30,3 +30,12 @@
 **Thoughts:** Will get MongoDB to work tomorrow.
 
 **Link to work:** Not much. Heroku is still failing me. Something wrong the the Dezalgo package.
+
+### Day 4: February 23, 2018
+
+**Today's Progress:** MEANapp: mongodb is now working. There is a difference between 'mongod' and 'mongo'. Making the /data/db folder, changing permissions and adding to the $PATH. With some help from Stackoverflow and the mongodb installation homepage. New words: collection, document, schema and path.
+Neso Academy and Digital Circuits: Watched youtube videos about latches,flip-flops and now counters. Not finished counters yet. 
+
+**Thoughts:** Try to find the connection between Digital Circuit and the Gezel language.
+
+**Link to work:** Nothing yet.
