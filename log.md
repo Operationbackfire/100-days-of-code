@@ -39,3 +39,11 @@ Neso Academy and Digital Circuits: Watched youtube videos about latches,flip-flo
 **Thoughts:** Try to find the connection between Digital Circuit and the Gezel language.
 
 **Link to work:** Nothing yet.
+
+### Day 5: February 24, 2018
+
+**Today's Progress:** Made a profile on mLab and mongodumped a collection from my MEANapp.
+
+**Thoughts:** Every day a small step.
+
+**Link to work:** Nothing yet.
