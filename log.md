@@ -44,6 +44,14 @@ Neso Academy and Digital Circuits: Watched youtube videos about latches,flip-flo
 
 **Today's Progress:** Made a profile on mLab and mongodumped a collection from my MEANapp.
 
-**Thoughts:** Every day a small step.
+**Thoughts:** Every day a small step. Got Heroku to work by deleting all npm directories and package-lock.json. I also used npm update. I don't what worked, but it worked.
 
 **Link to work:** Nothing yet.
+
+### Day 6: February 25, 2018
+
+**Today's Progress:** Arduinoday. Break from the MEANapp.
+
+**Thoughts:** How to use the 16 pin DIP? Is it a shift Register/many flip-flops in a row. Maybe this one https://www.arduino.cc/en/Tutorial/ShiftOut.
+
+**Link to work:** https://cryptic-spire-24600.herokuapp.com/
