@@ -63,3 +63,11 @@ Neso Academy and Digital Circuits: Watched youtube videos about latches,flip-flo
 **Thoughts:** Shift Register SISO, PISO and PIPO, and SIPO at Neso Academy.
 
 **Link to work:** The same as yesterday.
+
+### Day 8: January 27, 2018
+
+**Today's Progress:** New stuff in Python: dictionary {}, timeit library with the Timer function didn't, maybe because it was for Python 3. I did some recursion exercises, but got stuck in Pascals triangle.
+
+**Thoughts:** When I haved solved some more recursion exercises I will go back to lib0 from the MIT AI course.
+
+**Link to work:** Here are the link to the recursion exercises. https://www.python-course.eu/recursive_functions.php and https://www.python-course.eu/python3_recursive_functions.php
