@@ -71,3 +71,11 @@ Neso Academy and Digital Circuits: Watched youtube videos about latches,flip-flo
 **Thoughts:** When I haved solved some more recursion exercises I will go back to lib0 from the MIT AI course.
 
 **Link to work:** Here are the link to the recursion exercises. https://www.python-course.eu/recursive_functions.php and https://www.python-course.eu/python3_recursive_functions.php
+
+### Day 9: January 28, 2018
+
+**Today's Progress:** I tried to understand the solution to calculating the n'th row of the Pascal Triangle nad also the solution to calculating the Fibonacci Sequence from the Pascal Triangle. I made an iterative solution to the Sieve of Eratosthenes, but still have to understand the solution to the recursive solution. 
+
+**Thoughts:** Having the same thought as yesterday __When I haved solved some more recursion exercises I will go back to lib0 from the MIT AI course.__ I have to figure how a Fixed Point Combinator works and what Beta-reduction is. It has something to do with recursive functions.
+
+**Link to work:** Here are the link to the recursion exercises. https://www.python-course.eu/recursive_functions.php and https://www.python-course.eu/python3_recursive_functions.php
