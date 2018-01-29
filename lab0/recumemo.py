@@ -152,8 +152,29 @@ def primes(n):
     else:
         p = primes(int(sqrt(n)))
         no_p = [j for i in p for j in range(i*2, n + 1, i)]
+        print("This is no_p: ")
+        print(no_p)
         p = [x for x in range(2, n + 1) if x not in no_p]
+        print("This is p: ")
+        print(p)
         return p
 
+#print(primes(6))
 
-print(primes(100))
+#LIST COMPREHENSION
+#https://www.python-course.eu/python3_list_comprehension.php
+a = [j for i in [2,3,4] for j in range(i*i,i*i+i*4,i)]
+#forventet resultat [4,6,8,10,9,12,15,18,21,16,20,24,28,32]
+#print(a)
+#As expected. It is called List Comprehension.
+b = [j for i in [] for j in range(i*i,i*i+i*4,i)]
+#forventet res []
+#print(b)
+#ok
+
+#Testing with primes(6)
+c = [x for x in range(2, 2 + 1) if x not in []]
+#print(c)
+#
+d = [j for i in [2] for j in range(i*2, 6 + 1, i)]
+#print(d)

@@ -62,7 +62,7 @@ def count_pattern(pattern, lst):
     for i in range(0,len(lst)-len(pattern)+1):
         if test(i, pattern,lst):
             n = n + 1
-    print(n)
+    #print(n)
 
 #raise NotImplementedError
 
@@ -71,27 +71,89 @@ count_pattern(('a', 'b', 'a'), ('g', 'a', 'b', 'a', 'b', 'a'))
 
 # Problem 2.2: Expression depth
 
-def deep(expr,n):
-    m = n
-    for i in range(0,len(expr)-1):
-        if isinstance(expr[i], (tuple)): 
-            n = n + 1
-            return deep(expr[i],n)
-    if m == n
-        return n
+#def deep(expr,n):
+#    m = n
+#    for i in range(0,len(expr)-1):
+#        if isinstance(expr[i], (tuple)): 
+#            n = n + 1
+#            return deep(expr[i],n)
+#    if m == n
+#        return n
         #what has to be returned?
-        #hvis ingen tuple, så returner            
+        #hvis ingen tuple, then returner            
     
-   
+ 
+# This code is taken from https://github.com/junoon53/mit-ocw-6.034-artificial-intelligence/blob/master/lab0/lab0.py   
 def depth(expr):   
-    if deep
-    raise NotImplementedError
+    depth = 0
+    currentLists = expr
+    
+    def hasLists(ls):
+        return len([item for item in ls if isinstance(item,(list,tuple))]) > 0
+    
+    def getSublists(ls):
+   	    result = []
+   	    for sublist in ls:
+   		    if isinstance(sublist,(list,tuple)):
+   			    result+= [item for item in sublist if isinstance(item,(list,tuple))]
+            return result
+    
+    if isinstance(expr,(list,tuple)):
+        #e.g. depth(('expt', 'x', 2)). Input is a tuple.
+        depth+=1
+        #Lets take as example depth(('/', ('expt', 'x', 5), ('expt', ('-', ('expt', 'x', 2),1), ('/', 5, 2)))) => 4
+        #It can be seen as tree structure.
+        #hasLists(('/', ('expt', 'x', 5), ('expt', ('-', ('expt', 'x', 2),1), ('/', 5, 2)))) => True
+        while hasLists(currentLists):
+            depth+=1
+            #1. iteration: We get a list back, not a tuple: [('-', ('expt', 'x', 2), 1), ('/', 5, 2)]
+            #2. iteration: [('expt', 'x', 2)]
+            currentLists = getSublists(currentLists)
+        return depth
+    else:
+        #e.g. depth('x'). Input is not a tuple.
+        return 0
 
+#raise NotImplementedError
+
+#print depth('x')
+#print depth(('expt', 'x', 2))
+#print depth(('+', ('expt', 'x', 2), ('expt', 'y', 2)))
+#print depth(('/', ('expt', 'x', 5), ('expt', ('-', ('expt', 'x', 2),1), ('/', 5, 2))))
+
+#ls0 = 'x'
+#ls1 = ('expt', 'x', 2)
+#ls2 = ('+', ('expt', 'x', 2), ('expt', 'y', 2))
+#ls4 = ('/', ('expt', 'x', 5), ('expt', ('-', ('expt', 'x', 2),1), ('/', 5, 2)))
+
+#it doesn't work
+#def depth2(expr):
+#    a = []
+#    for j in range(len(expr)):
+#        if isinstance(expr,(list,tuple)) == 0:
+#            a.append(0)
+#            if len(a) == len(expr):
+#                return max(a)
+#        else:
+#            a.append(1 + depth2(expr[j]))
+            
+#print(depth2(ls4))
 
 # Problem 2.3: Tree indexing
 
+#it works
 def tree_ref(tree, index):
-    raise NotImplementedError
+    subtree = tree
+    for i in index:
+        subtree = subtree[i]
+    return subtree
+
+tree1 = (((1, 2), 3), (4, (5, 6)), 7, (8, 9, 10))
+
+#it works
+print tree_ref(tree1, (3, 1))
+print tree_ref(tree1, (1, 1,1))
+print tree_ref(tree1, (1,))
 
 
 # Section 3: Symbolic algebra

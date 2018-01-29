@@ -53,6 +53,9 @@ class Expression:
     "This abstract class does nothing on its own."
     pass
 
+"""
+class Sum inherit all functions from the class list and the class Expression    
+"""
 class Sum(list, Expression):
     """
     A Sum acts just like a list in almost all regards, except that this code
@@ -77,10 +80,12 @@ class Sum(list, Expression):
         """
         terms = self.flatten()
         if len(terms) == 1:
+            #der er kun en term i summen dvs. k eller 2 eller x.
             return simplify_if_possible(terms[0])
         else:
+            #der er flere end 2 i summen
             return Sum([simplify_if_possible(term) for term in terms]).flatten()
-
+    
     def flatten(self):
         """Simplifies nested sums."""
         terms = []
@@ -152,7 +157,6 @@ def multiply(expr1, expr2):
     if not isinstance(expr2, Expression): expr2 = Product([expr2])
     return do_multiply(expr1, expr2)
 
-
 def do_multiply(expr1, expr2):
     """
     You have two Expressions, and you need to make a simplified expression
@@ -173,6 +177,26 @@ def do_multiply(expr1, expr2):
     Look above for details on the Sum and Product classes. The Python operator
     '*' will not help you.
     """
+    
+    if isinstance(expr1, Product) and isinstance(expr2,Product):
+        exprout = Product(expr1 + expr2)
+    if isinstance(expr1, Sum) and isinstance(expr2,Product):
+        new_terms = [] #type list
+        for term in expr1:
+            new_terms.append(Product([term] + expr2)) 
+            #the Product type derives the list operation: list(list1 + list2) = newlist from the list type
+        exprout = Sum(new_terms) #type Sum
+    if isinstance(expr1, Product) and isinstance(expr2,Sum):
+        exprout = do_multiply(expr2,expr1)
+    else: #Dette er Sum og Sum
+        new_terms = []
+        for t1 in expr1:
+            for t2 in expr2:
+                new_terms.append(Product([t1] + [t2]))
+        exprout = Sum(new_terms)
+    return exprout
+    
     # Replace this with your solution.
     raise NotImplementedError
+
 
