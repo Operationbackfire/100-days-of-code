@@ -79,3 +79,11 @@ Neso Academy and Digital Circuits: Watched youtube videos about latches,flip-flo
 **Thoughts:** Having the same thought as yesterday __When I haved solved some more recursion exercises I will go back to lib0 from the MIT AI course.__ I have to figure how a Fixed Point Combinator works and what Beta-reduction is. It has something to do with recursive functions.
 
 **Link to work:** Here are the link to the recursion exercises. https://www.python-course.eu/recursive_functions.php and https://www.python-course.eu/python3_recursive_functions.php
+
+### Day 10: January 29, 2018
+
+**Today's Progress:** Finished lab0 of AT MIT.
+
+**Thoughts:** Went back and nailed it.
+
+**Link to work:** Not links today.
