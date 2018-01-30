@@ -63,6 +63,7 @@ ZOOKEEPER_RULES = (
              '(?x) has black and white color' ),
         THEN( '(?x) is an ostrich' )),
     
+    #is a pinguin
     IF( AND( '(?x) is a bird',          # Z14
              '(?x) does not fly',
              '(?x) swims',

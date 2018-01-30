@@ -17,7 +17,7 @@ from production import IF, AND, OR, NOT, THEN, forward_chain
 #    2. the consequent
 #    3. both
 
-ANSWER_1 = 'your answer here'
+ANSWER_1 = 'The rules looks for the antecendent in the data and produce a new piece of data called the consequent'
 
 # A rule-based system about Monty Python's "Dead Parrot" sketch
 # uses the following rules:
@@ -37,10 +37,10 @@ ANSWER_1 = 'your answer here'
 
 # Will this system produce the datum 'Polly is pining for the
 # fjords'?  Answer 'yes' or 'no'.
-ANSWER_2 = 'your answer here'
+ANSWER_2 = 'yes'
 
 # Which rule contains a programming error? Answer '1' or '2'.
-ANSWER_3 = 'your answer here'
+ANSWER_3 = 'apparently 2'
 
 # If you're uncertain of these answers, look in tests.py for an
 # explanation.
@@ -90,10 +90,10 @@ poker_data = ( 'two-pair beats pair',
 # which poker hands beat which, transitively. For example, it
 # should be able to deduce that a three-of-a-kind beats a pair,
 # because a three-of-a-kind beats two-pair, which beats a pair.
-transitive_rule = IF( AND(), THEN() )
+transitive_rule = IF( AND('(?x) beats (?y)','(?y) beats (?z)'), THEN('(?x) beats (?z)') )
 
 # You can test your rule like this:
-# print forward_chain([transitive_rule], poker_data)
+#print forward_chain([transitive_rule], poker_data)
 
 # Here's some other data sets for the rule. The tester uses
 # these, so don't change them.
@@ -104,6 +104,10 @@ TEST_RESULTS_TRANS2 = forward_chain([transitive_rule],
     'scissors beats paper', 
     'paper beats rock' ])
 
+data1 = [ 'a beats b', 'b beats c' ]
+#print forward_chain([transitive_rule], data1)
+data2 = [ 'rock beats scissors', 'scissors beats paper', 'paper beats rock' ]
+#print forward_chain([transitive_rule], data2)
 
 # Problem 1.3.2: Family relations
 
@@ -112,9 +116,25 @@ TEST_RESULTS_TRANS2 = forward_chain([transitive_rule],
 # able to refer to the rules by name and easily rearrange them if
 # you need to.
 
+sibling = IF( AND('parent (?x) (?y)','parent (?x) (?z)'), THEN('sibling (?y) (?z)') )
+brother1 = IF( AND('sibling (?x) (?y)','male (?x)'), THEN('brother (?x) (?y)'))
+brother2 = IF( AND('sibling (?x) (?y)','male (?y)'), THEN('brother (?y) (?x)'))
+sister1 = IF( AND('sibling (?x) (?y)','female (?x)'), THEN('sister (?x) (?y)'))
+sister2 = IF( AND('sibling (?x) (?y)','female (?x)'), THEN('sister (?y) (?x)'))
+mother = IF( AND('parent (?x) (?y)','female (?x)'), THEN('mother (?x) (?y)'))
+father = IF( AND('parent (?x) (?y)','male (?x)'), THEN('father (?x) (?y)'))
+son = IF( AND('parent (?x) (?y)','male (?y)'), THEN('son (?y) (?x)'))
+daugther = IF( AND('parent (?x) (?y)','female (?y)'), THEN('daughter (?y) (?x)'))
+grandparent = IF( AND('parent (?y) (?x)','parent (?z) (?y)'), THEN('grandparent (?z) (?x)'))
+grandchild =  IF( AND('parent (?y) (?x)','parent (?z) (?y)'), THEN('grandchild (?x) (?z)'))
+cousin = IF( AND('sibling (?x) (?y)','parent (?x) (?a)','parent (?y) (?b)', NOT('sibling (?a) (?b)')), THEN('cousin (?a) (?b)'))
+
 # Then, put them together into a list in order, and call it
 # family_rules.
-family_rules = [ ]                    # fill me in
+#family_rules = [sibling,brother1,brother2,sister1,sister2,mother,father,son,daughter,cousin,grandparent,grandchild]                
+
+#cousin throws an error, so I omitted it
+family_rules = [sibling, brother1,brother2,sister1,sister2,mother,father,son,daugther,grandparent,grandchild,cousin]
 
 # Some examples to try it on:
 # Note: These are used for testing, so DO NOT CHANGE
@@ -131,6 +151,9 @@ simpsons_data = ("male bart",
                  "parent homer lisa",
                  "parent homer maggie",
                  "parent abe homer")
+#testing my family_rules. works without cousin rule.
+#print forward_chain(family_rules, simpsons_data)
+                 
 TEST_RESULTS_6 = forward_chain(family_rules,
                                simpsons_data,verbose=False)
 # You can test your results by uncommenting this line:
@@ -161,13 +184,16 @@ black_data = ("male sirius",
 # This should generate 14 cousin relationships, representing
 # 7 pairs of people who are cousins:
 
+#family_rulesc = [sibling, brother1,brother2,sister1,sister2,mother,father,son,daugther,grandparent,grandchild]
+#print forward_chain(family_rulesc, black_data)
+
 black_family_cousins = [ 
     x for x in 
     forward_chain(family_rules, black_data, verbose=False) 
     if "cousin" in x ]
 
 # To see if you found them all, uncomment this line:
-# print black_family_cousins
+print black_family_cousins
 
 # To debug what happened in your rules, you can set verbose=True
 # in the function call above.

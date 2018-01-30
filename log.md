@@ -86,4 +86,11 @@ Neso Academy and Digital Circuits: Watched youtube videos about latches,flip-flo
 
 **Thoughts:** Went back and nailed it.
 
-**Link to work:** Not links today.
+**Link to work:** No links today.
+
+### Day 11: January 30, 2018
+**Today's Progress:** Tried to do lab1 of AT MIT. Wrote some family relation rules and used them to construct new rules about the family. Data: simpsons and black (from Harry Potter). I didn't write the backchaining function, but tried to understand a solution. It was important to use the functions match, populate and the member functions .antecedent and .consequent of the class IF. It was difficult to understand when to shift between the classes AND and OR and the list class.
+
+**Thoughts:** I moved on to lab2. Need to implement DFS,BFS,Hill Climbing and Beam on a graph structure tomorrow. 
+
+**Link to work:** No links today.
