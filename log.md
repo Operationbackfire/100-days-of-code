@@ -94,3 +94,11 @@ Neso Academy and Digital Circuits: Watched youtube videos about latches,flip-flo
 **Thoughts:** I moved on to lab2. Need to implement DFS,BFS,Hill Climbing and Beam on a graph structure tomorrow. 
 
 **Link to work:** No links today.
+
+### Day 12: January 31, 2018
+**Today's Progress:** I tried to implement DFS in lab2, but failed. I used recursion, but couldn't get it right. I looked at the code of someone having implemented DFS and BFS, and he didn't use recursion. In DFS the idea is to maintain a list with paths [('S','A'),('S','B')]. The idea is to delete the first path ('S','A') on the list and update it with its children [('S','A','B'),('S','A','D'),('S','B')]. Do the same with the front of the list. We get ('S','A','B','C') and ('S','A','B','G') that has to be added to the front after deleting ('S','A','B').
+In BFS the updated paths should be placed in the back [('S','B'),('S','A','B'),('S','A','D')] and the front should be updated. Do the same again. [('S','A','B'),('S','A','D'),('S','B','A'),('S','B','C')].
+
+**Thoughts:** Hill Climbing is DFS/BFS? with sorting of the heuristic distances to goal. Only 1 line added. BEAM is DFS/BFS? only looking at k children e.g. 2.
+
+**Link to work:** Nothing.
