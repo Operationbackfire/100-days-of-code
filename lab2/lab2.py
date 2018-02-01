@@ -149,7 +149,7 @@ def dfs1(graph, start, goal):
 #I HAVE TO LOOK THROUGH THE CODE TO UNDERSTAND IT.    
 ### THE FOLLOWING CODE IS TAKEN FROM
 ###https://github.com/junoon53/mit-ocw-6.034-artificial-intelligence/blob/master/lab2/lab2.py
-def bfs(graph, start, goal):
+def bfs(graph,start,goal): 
     #This function is not recursively defined.
     pathList = [(start,)]
     if start == goal:
@@ -205,7 +205,7 @@ def bfs(graph, start, goal):
         pathList.extend(newPaths)
         #print "OUTSIDE"
         #print pathList
-#print bfs(GRAPH1,'Stairs','Dungeon 5') 
+print bfs(GRAPH1,'Stairs','Dungeon 5') 
 
 #AGAIN SOME CODE FROM https://github.com/junoon53/mit-ocw-6.034-artificial-intelligence/blob/master/lab2/lab2.py
 

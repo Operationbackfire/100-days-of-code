@@ -102,3 +102,10 @@ In BFS the updated paths should be placed in the back [('S','B'),('S','A','B'),(
 **Thoughts:** Hill Climbing is DFS/BFS? with sorting of the heuristic distances to goal. Only 1 line added. BEAM is DFS/BFS? only looking at k children e.g. 2.
 
 **Link to work:** Nothing.
+
+### Day 13: January 1, 2018
+**Today's Progress:** Forsøgte at implementere DFS igen. 
+
+**Thoughts:** Didn't have much time today.
+
+**Link to work:** Nothing.
