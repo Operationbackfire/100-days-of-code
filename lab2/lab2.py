@@ -244,7 +244,7 @@ def dfs(graph, start, goal):
         return goalPath
     else: return []
 
-print bfs(GRAPH1,'Stairs','Dungeon 5') 
+#print bfs(GRAPH1,'Stairs','Dungeon 5') 
 
 ## Once you have completed the breadth-first search,
 ## this part should be very simple to complete.
@@ -306,12 +306,35 @@ def beam_search(graph, start, goal, beam_width):
 
 ## This function takes in a graph and a list of node names, and returns
 ## the sum of edge lengths along the path -- the total distance in the path.
-def path_length(graph, node_names):
-    raise NotImplementedError
 
+def path_length(graph,path):
+    if len(path) == 1
+         return 0
+    path_length = 0
+    for i in range(len(path)-1):
+         path_length += graph.get_edge(path[i],path[i+1]).length
+    return path_length
 
 def branch_and_bound(graph, start, goal):
-    raise NotImplementedError
+    path_list = [((start,0),)]
+    
+    while len(path_list) > 0:
+                
+        path = path_list[0][0]
+        node = path[-1]
+        
+        connected_nodes = graph.get_connected_nodes(node) 
+        if len(path) > 1:
+            connected_nodes = [cnode for cnode in connected_nodes if cnode not in path]
+    
+        if goal in connected_nodes:
+            return list(path + (goal,))
+        
+        path_list = [(path + (node,),path_length(graph,path + (node,))) for node in connected_nodes] + path_list
+    
+        path_list = min(path_list, key = lambda t: t[1])
+        
+branch_and_bound()
 
 def a_star(graph, start, goal):
     raise NotImplementedError
