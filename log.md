@@ -110,7 +110,7 @@ In BFS the updated paths should be placed in the back [('S','B'),('S','A','B'),(
 
 **Link to work:** Nothing.
 
-### Day 14 and 15: February 1, 2018
+### Day 14 and 15: February 2 an 3, 2018
 **Today's Progress:** 14: I reimplemented DFS, BFS, Hill Climbing and BEAM in Python. It cut out at while loop of the first 3. I don't know if BEAM has to save all paths or just save beam_width # of shortest paths at each level.
 I tried to implement branch and bound, but I didn't make it. I used the data structure (path, path_length) and 'min' with an anonymous function to find minimum.
 I still need to look at A*.
@@ -120,3 +120,15 @@ I learned about 2 constraint satisfaction problems: line drawings (Huffmann, Guz
 **Thoughts:** Next is to implement and understand alpha-beta pruning. I need to understand Deep Cut-off.
 
 **Link to work:** Nothing.
+
+### Day 16: February 4, 2018
+**Today's Progress:** Used the Selenium library for Python to login and download userinfo to a file. Storing it in a database will be the next step. Also timing it could be fun - e.g setting it to download everyday at noon.
+
+**Pending Projects:**
+1. MEANapp - continue work
+2. alpha-beta pruning - watch video and implement
+3. MySQL - forgot password
+4. sklearn - library not working
+5. python3 - not working
+6. unittest - learn to test
+7. Timing in Python.
