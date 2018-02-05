@@ -111,6 +111,7 @@ def make_tree(tup):
     
 def make_tree_helper(tup, node_type):
     """Generate a Tree from tuple format"""
+    #tupe[1] is not a value, but it is called a value why?
     n = Node(tup[0], tup[1], node_type)
     children = []
     if len(tup) > 2:

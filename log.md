@@ -122,7 +122,7 @@ I learned about 2 constraint satisfaction problems: line drawings (Huffmann, Guz
 **Link to work:** Nothing.
 
 ### Day 16: February 4, 2018
-**Today's Progress:** Used the Selenium library for Python to login and download userinfo to a file. Storing it in a database will be the next step. Also timing it could be fun - e.g setting it to download everyday at noon.
+**Today's Progress:** Used the Selenium library for Python to login and download userinfo to a file. Storing it in a database will be the next step. Also timing it could be fun - e.g setting it to download everyday at noon. I also did some regex.
 
 **Pending Projects:**
 1. MEANapp - continue work
@@ -132,3 +132,20 @@ I learned about 2 constraint satisfaction problems: line drawings (Huffmann, Guz
 5. python3 - not working
 6. unittest - learn to test
 7. Timing in Python.
+
+**Links:** Great way to learn https://regexone.com/
+
+### Day 17: February 5, 2018
+**Today's Progress:** Tried to understand the code around the alpha-beta pruning function mainly the tree_searcher.py. I read through an implementation of the function and now I have an idea of how to start.
+I did some more Selenium. I had some problems with instances of a class, that didn't want to return the values that I had put into them.
+
+**Pending Projects:**
+1. MEANapp - continue work
+2. alpha-beta pruning - implement
+3. MySQL - forgot password
+4. sklearn - library not working
+5. python3 - not working
+6. unittest - learn to test
+7. Timing in Python.
+
+**Links:** No links.

@@ -30,7 +30,7 @@ ANSWER2 = 0
 from connectfour import *
 from basicplayer import *
 from util import *
-import tree_searcher
+#import tree_searcher
 
 ## This section will contain occasional lines that you can uncomment to play
 ## the game interactively. Be sure to re-comment them when you're done with
@@ -151,6 +151,7 @@ for i in range(1,3+1):
 #for nextboard in nextboards:
 #    print minimax(nextboard,depth=1)
 
+"""
 #### This is an example of how the minimax is working.
 minimax(testboard, depth = 3)
 for move, new_board in get_all_next_moves(testboard):
@@ -162,6 +163,7 @@ for move, new_board in get_all_next_moves(testboard):
         #for move2, new_board2 in get_all_next_moves(new_board1):
         #    print "Minimax0: ",basic_evaluate(new_board2)
 ####
+"""
     
 ## Create a "player" function that uses the focused_evaluate function
 quick_to_win_player = lambda board: minimax(board, depth=5,
@@ -176,6 +178,34 @@ quick_to_win_player = lambda board: minimax(board, depth=5,
 ## counting the number of static evaluations you make.
 ##
 ## You can use minimax() in basicplayer.py as an example.
+
+"""JUST TESTING HOW THE TREE SEARCHER WORKS
+tup_tree = ("A", None,
+	    ("B", None,
+		 ("C", None,
+		  ("D", 2),
+		  ("E", 2)),
+		 ("F", None,
+		  ("G", 0),
+		  ("H", 4))
+		 ),
+		("I", None,
+		 ("J", None,
+		  ("K", 6),
+		  ("L", 8)),
+		 ("M", None,
+		  ("N", 4),
+		  ("O", 6))
+		 )
+		)
+from tree_searcher import *
+print tup_tree
+tree = make_tree(tup_tree)
+print "%s:\n%s" %("TREE_1", tree_as_string(tree))
+"""
+
+
+"""
 def alpha_beta_search(board, depth,
                       eval_fn,
                       # NOTE: You should use get_next_moves_fn when generating
@@ -186,9 +216,55 @@ def alpha_beta_search(board, depth,
                       get_next_moves_fn=get_all_next_moves,
 		      is_terminal_fn=is_terminal):
     #f(x) then -1*f(y) then -1*(-1)*f(z) and finally f(alpha) is calculated as a number and is returned recursively, that makes every second evalution of val > best_val find the minimum. The first evaluation of val > best_val will be a minimum evalution of the leaf values. With negative values in the beginnning e.g. [-2,-3,-4] it still works val > best_val for [2,3,4] chooses 4 and that is exactly the the minimum -4.
+    best_val = None
     
-    
-    raise NotImplementedError
+    for move, new_board in get_next_moves_fn(board):
+        val = -1 * minimax_find_board_value(new_board, depth-1, eval_fn,
+                                            get_next_moves_fn,
+                                            is_terminal_fn)
+        if best_val == None or val > best_val[0]:
+            best_val = (val, move, new_board)
+            
+    if verbose:
+        print "MINIMAX: Decided on column %d with rating %d" % (best_val[1], best_val[0])
+
+    return best_val[1]
+"""
+
+"""
+#OBS: nodeType, alpha and beta are new
+def alpha_beta_find_board_value(nodeType, alpha, beta, board, depth, eval_fn,
+                             get_next_moves_fn=get_all_next_moves,
+                             is_terminal_fn=is_terminal):
+"""
+
+#from testingclass import *
+
+#x = Complex(3.0, -4.5)
+#print x.i,x.r
+
+#myNode = Node("S",4,"MIN",["A","B","C"])
+#myNode.set_children(["D","E"])
+#print myNode.get_children()
+#print myNode.value
+#myNode.add("F")
+#print tree_as_string(myNode)
+#print myNode.get_children()
+#print myNode.num_children()
+
+#print tree_eval(myNode)
+#Does not work???
+#print tree_as_string(myNode)
+
+#tup = ("S",("A",("B",("D","F")),"C"))
+#print tup[0],type(tup[1])
+#n = Node(tup[0],tup[1],"MIN")
+#print n.value
+#print len(tup)
+#print len(("A",("B",("D","F")),"C"))
+#print range(2,5)
+#print make_tree(("S","K",("A",("B",("D","F")),"C")))
+#print make_tree(("S","A"))
 
 ## Now you should be able to search twice as deep in the same amount of time.
 ## (Of course, this alpha-beta-player won't work until you've defined
