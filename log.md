@@ -149,3 +149,6 @@ I did some more Selenium. I had some problems with instances of a class, that di
 7. Timing in Python.
 
 **Links:** No links.
+
+### Day 18: February 6, 2018
+**Today's Progress:** I read in data from a file line by line using regex to select name and age and tried to add it to a class. The idea was to do something simple so that i could try out the unittest library. I get it now. I watched some videos: Nearest Neighbors (The Robotic Arm Example looking up position, speed, acceleration in a table and then NN interpolation. Only few iterations are needed.). Identification Trees and Disorder (The Vampire 8 Sample Example - the idea is to select at path of tests in the test tree by calculating the testquality - here the disorder is used - to identify a vampire among the the 8 samples). Neural Net (The 2 neuron example is worth looking through again. Important concept: eliminating the threshold T by adding an extra neuron with weight T and input -1, threshold stairfunction -> sigmoid function and performancefunction as the -norm (the idea is to maximize the -norm = minimizing the norm = training the neural net)). Neural Nets are used in image recognition e.g. the toronto neural net. Deep Neural Net: well...
