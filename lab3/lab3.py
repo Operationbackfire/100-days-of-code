@@ -205,39 +205,105 @@ print "%s:\n%s" %("TREE_1", tree_as_string(tree))
 """
 
 
-"""
 def alpha_beta_search(board, depth,
                       eval_fn,
-                      # NOTE: You should use get_next_moves_fn when generating
-                      # next board configurations, and is_terminal_fn when
-                      # checking game termination.
-                      # The default functions set here will work
-                      # for connect_four.
                       get_next_moves_fn=get_all_next_moves,
 		      is_terminal_fn=is_terminal):
     #f(x) then -1*f(y) then -1*(-1)*f(z) and finally f(alpha) is calculated as a number and is returned recursively, that makes every second evalution of val > best_val find the minimum. The first evaluation of val > best_val will be a minimum evalution of the leaf values. With negative values in the beginnning e.g. [-2,-3,-4] it still works val > best_val for [2,3,4] chooses 4 and that is exactly the the minimum -4.
-    best_val = None
     
+    
+    #This line 
+    #best_val = None
+    #is substituted for the following line
+    
+    #move is set to -1 in the beginning
+    alpha = (-1000,-1,board)
+    beta = (1000,-1,board)
+    nodeType = 'max'
+    
+    
+    #get_next_moves_fn returns a 2-tuple
+    #move is a number between 0 and 6
     for move, new_board in get_next_moves_fn(board):
-        val = -1 * minimax_find_board_value(new_board, depth-1, eval_fn,
+        #alpha_beta_find_board_value with new_board and dept-1. ONE LEVEL DOWN.
+        #
+        val = -1 * alpha_beta_find_board_value(nodeType, alpha[0], alpha[0], new_board, depth-1, 
+                                            eval_fn,
                                             get_next_moves_fn,
                                             is_terminal_fn)
-        if best_val == None or val > best_val[0]:
-            best_val = (val, move, new_board)
-            
-    if verbose:
-        print "MINIMAX: Decided on column %d with rating %d" % (best_val[1], best_val[0])
+        #move is a number between 0 and 6
+        if val > alpha[0]:
+            alpha = (val,move,new_board)
+        #alpha[0] >= val then the max has alredy been found 
+        
+        #this I don't understand. 
+        if alpha[0] >= abs(beta[0]):
+            break
+    
+        print "ALPHA-BETA: Decided on column %d with rating %d" % (alpha[1], alpha[0])
+    
+    #this I also don't get. Why return the move number? 
+    #Answer: Because it should give the player the best move.
+    return alpha[1]
 
-    return best_val[1]
-"""
-
-"""
-#OBS: nodeType, alpha and beta are new
 def alpha_beta_find_board_value(nodeType, alpha, beta, board, depth, eval_fn,
                              get_next_moves_fn=get_all_next_moves,
                              is_terminal_fn=is_terminal):
-"""
-
+    
+    #We have gone a level down and need to change the nodeType.
+    #We started with 'max'. So the first change must bo to 'min'.
+    if nodeType == 'min':
+        nodeType = 'max'
+    if nodeType == 'max':
+        nodeType = 'min'
+    
+    #Has to calculate the value of the all leaf boards.
+    if is_terminal_fn(depth, board):
+        board_value = eval_fn(board)
+        if nodeType == 'max':
+            #Lets assume we to go 2 levels down to reach the leafs.
+            #Lets say the 'max' leafs has the board_values 1,2,3,4,5,6,7
+            #Then one level up it must be a 'min' node.
+            #Is 1 < 1000. Yes. Set beta = 1. Next iteration. Is 2 < 1. No.
+            #Next iteration. Is 3 < 1. No. Und so weiter.
+            #When the 7 iterations are complete beta is still 1.
+            #Have we found the minimum of 1,2,3,4,5,6,7? Yes.  
+            return board_value
+        if nodeType == 'min':
+            #Assume only 1 level down we have the leaves.
+            #Is -1 > -1000. Yes. Set alpha = (1,movenode,boardnode). Is 2 > 1. Yes. 
+            #Set alpha = (2,movenode,boardnode). So in the end alpha = (7,movenode,boardnode)
+            return -board_value
+    
+    #This loop is just go deeper into the tree. All the way to the leafs.
+    for move, new_board in get_next_moves_fn(board):
+        print 'performing minimax on: ', new_board, ', depth :', depth
+        val = -1*alpha_beta_find_board_value(nodeType,alpha,beta,new_board, depth-1, eval_fn,
+                                               get_next_moves_fn, 
+                                               is_terminal_fn)
+        print 'got board value: ', val , 'depth: ', depth,'node type:',nodeType                          
+        if nodeType == 'max':
+            if val > alpha:
+                #alpha is Max' Memory. 
+                alpha = val
+        if nodeType == 'min':
+            if val < beta:
+                beta = val
+                
+        if alpha >= beta:
+            print 'alpha:',alpha,'>=','beta',beta,'at depth', depth,';pruning'
+            break
+    
+    if nodeType == 'max':
+        return alpha
+    if nodeType == 'min':
+        #Lets say that one round of the loop has been performed
+        # in the 2 level example and the values for beta has been set to 1,2,3,1,2,3,4
+        # for the seven nodes. beta is now returned to alpha_beta_search.
+        #We know it has to maximize, so -1 > -1000. Yes. Set alpha = -1. 
+        return beta
+ 
+    
 #from testingclass import *
 
 #x = Complex(3.0, -4.5)
@@ -269,9 +335,15 @@ def alpha_beta_find_board_value(nodeType, alpha, beta, board, depth, eval_fn,
 ## Now you should be able to search twice as deep in the same amount of time.
 ## (Of course, this alpha-beta-player won't work until you've defined
 ## alpha-beta-search.)
+
+alpha_beta_search(testboard,depth=4,eval_fn=basic_evaluate)
+
+
 alphabeta_player = lambda board: alpha_beta_search(board,
                                                    depth=8,
                                                    eval_fn=focused_evaluate)
+
+#run_game(basic_player, alphabeta_player)
 
 ## This player uses progressive deepening, so it can kick your ass while
 ## making efficient use of time:
