@@ -158,8 +158,16 @@ I did some more Selenium. I had some problems with instances of a class, that di
 
 **Links:** https://stackoverflow.com/questions/39821177/python-pyqt-on-macos-sierra
 
-### Day 20 and 21: February 7, 2018
+### Day 20 and 21: February 8 and 9, 2018
 **Today's Progress:** 20: Read in some selective data from a file using regex and created object instances of a class with username and age + a datetime object. I make a json structure from the ojbects and tried to json.dump it to mongodb. I need a way to verify the json format before it is send to the database and a way to index every datetime unique set. 21: Mongodb: Tried to read about aggregation and mapreduce on the mongodb homepage after getting stuck in aggregatin using mongopy. First learn aggreation, mapreduce and datamodelling from examples on mongodb and then try to implement something using pymongo.
 
 **Thoughts:** New libraries to look at: tensorflow (and some layer on top of tensorflow), flask (some kind of miniserver) and pylint (syntax checking).  
 
+### Day 22: February 10, 2018
+**Today's Progress:** Trying out tensorflow with the Iris flower data set https://www.tensorflow.org/get_started/premade_estimators. It works with Python 2. Read about classification and watched the ai mit lecture 18 video about Representations: classes, trajectories and transitions.
+
+### Day 23: February 13, 2018
+**Today's Progress:** Implemented Euclids algorithm, used pylint, went through a flask tutorial and it worked - added a page. Tried out some examples with jinja2. I didn't get that far.
+
+**Thoughts:** Find out how to use pandas https://www.youtube.com/watch?v=Iqjy9UqKKuo.
+Make some more in jinja2 and flask.
