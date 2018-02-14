@@ -171,3 +171,9 @@ I did some more Selenium. I had some problems with instances of a class, that di
 
 **Thoughts:** Find out how to use pandas https://www.youtube.com/watch?v=Iqjy9UqKKuo.
 Make some more in jinja2 and flask.
+
+### Day 24: February 14, 2018
+**Today's Progress:** Tensorflow is using keras (maybe) to make the layers in the neural network. Installed matplotlib. Using MNIST database. When I tried to add to the model it failed. Haven't found the error yet. Theano is maybe need for matplotlib to work. And Theano needs Conda. The evil circle.
+
+**Thoughts:** Follow https://elitedatascience.com/keras-tutorial-deep-learning-in-python#step-3
+Next course http://cs231n.stanford.edu/ 
