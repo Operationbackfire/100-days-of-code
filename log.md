@@ -177,3 +177,8 @@ Make some more in jinja2 and flask.
 
 **Thoughts:** Follow https://elitedatascience.com/keras-tutorial-deep-learning-in-python#step-3
 Next course http://cs231n.stanford.edu/ 
+
+### Day 25 and 26: February 15 and 16, 2018
+**Today's Progress:** I listened to a podcast about web frameworks for Python: Flask, Django, Tornado and Pyramide. I had tried the first, so thought I would do a tutorial in Django. I have looked at Ruby on Rails a long time ago; tried the MEAN stack, but never reached the Angular part; and tried Flask some days ago. Yesterday and today I looked at Django. I needed python3 and got it installed. Maybe now i should go back to sklearn which is for python3. Needed to make a folder writable chmod 777. I have reached the admin part of the tutorial. 
+
+**Links:** Django https://docs.djangoproject.com/en/2.0/intro/tutorial02/ Python talk https://talkpython.fm/episodes/show/149/4-python-web-frameworks-compared
