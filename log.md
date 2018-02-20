@@ -182,3 +182,9 @@ Next course http://cs231n.stanford.edu/
 **Today's Progress:** I listened to a podcast about web frameworks for Python: Flask, Django, Tornado and Pyramide. I had tried the first, so thought I would do a tutorial in Django. I have looked at Ruby on Rails a long time ago; tried the MEAN stack, but never reached the Angular part; and tried Flask some days ago. Yesterday and today I looked at Django. I needed python3 and got it installed. Maybe now i should go back to sklearn which is for python3. Needed to make a folder writable chmod 777. I have reached the admin part of the tutorial. 
 
 **Links:** Django https://docs.djangoproject.com/en/2.0/intro/tutorial02/ Python talk https://talkpython.fm/episodes/show/149/4-python-web-frameworks-compared
+
+### Day 27: February 17, 2018
+**Today's Progress:** Looked at some R code. Using ggplot2. Looked at how to use pandas. It is straight forward to read .csv files. This can be used for tensorflow.
+
+### Day 28: February 20, 2018
+**Today's Progress:** Looked at lab5 ai mit about neural nets and boosting. I got orange installed in the right version (2) and also the python library of the same name. Read through some of the files, but didn't get that far.
